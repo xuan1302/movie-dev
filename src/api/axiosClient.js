@@ -1,7 +1,6 @@
 import axios from "axios";
 import queryString from 'query-string';
 const API_KEY = process.env.REACT_APP_KEY_MOVIE;
-console.log(API_KEY)
 const axiosClient = axios.create({
     baseURL: 'https://api.themoviedb.org/3/',
     headers: {

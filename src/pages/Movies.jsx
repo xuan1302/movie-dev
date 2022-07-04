@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Taxonomy from '../components/taxonomy/Taxonomy';
 
 Movies.propTypes = {
 
@@ -7,9 +8,9 @@ Movies.propTypes = {
 
 function Movies(props) {
     return (
-        <div>
-            Movies
-        </div>
+        <>
+            <Taxonomy />
+        </>
     );
 }
 

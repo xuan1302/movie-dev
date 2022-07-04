@@ -1,15 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-TvSeries.propTypes = {
-
-};
+import Taxonomy from '../components/taxonomy/Taxonomy';
 
 function TvSeries(props) {
     return (
-        <div>
-            TvSeries
-        </div>
+        <>
+            <Taxonomy />
+        </>
     );
 }
 
