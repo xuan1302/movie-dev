@@ -1,14 +1,12 @@
 import axiosClient from "./axiosClient";
-const API_KEY = process.env.REACT_APP_KEY_MOVIE;
+import { movieType } from '../constantsMovie';
 const movieApi = {
     getMoviesList: (type, params) => {
-        const url = `movie/${type}?api_key=${API_KEY}`;
-        // console.log(type)
-        // console.log(movieType[type])
+        const url = `movie/${movieType[type]}`;
         return axiosClient.get(url, params);
     },
     getTvList: (type, params) => {
-        const url = 'tv/' + type;
+        const url = `tv/${movieType[type]}`;
         return axiosClient.get(url, params);
     },
     getVideos: (cate, id) => {

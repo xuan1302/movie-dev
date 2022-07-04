@@ -1,10 +1,9 @@
-@use "../../scss/" as *;
 
-.hero-slide {
+.home-slide {
     margin-bottom: 3rem;
 }
 
-.hero-slide__item {
+.home-slide__item {
     padding: 9rem 0;
     width: 100%;
     position: relative;
@@ -19,7 +18,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        @include overlay();
+        background-color: rgba($color: #000000, $alpha: 0.6);
     }
 
     &::after {
@@ -29,21 +28,19 @@
         left: 0;
         width: 100%;
         height: 100px;
-        background-image: linear-gradient(to top, $body-bg, rgba($black, 0));
+        background-image: linear-gradient(to top, #0f0f0f, rgba(#000, 0));
     }
 
-    &__content {
-        @include flex(center, center);
+        .home-slide__item__content {
+        display: flex;
+        align-items: center;
+        justify-content:center;
         position: relative;
 
-        &__info {
+        .home-slide__item__content__info {
             width: 55%;
             padding: 0 3rem;
             position: relative;
-
-            @include tablet {
-                width: 100%;
-            }
 
             & > * ~ * {
                 margin-top: 3rem;
@@ -53,10 +50,6 @@
                 font-size: 5rem;
                 font-weight: 700;
                 line-height: 1;
-
-                @include tablet {
-                    font-size: 4rem;
-                }
             }
 
             .overview {
@@ -76,22 +69,20 @@
             }
         }
 
-        &__poster {
+            .home-slide__item__content__poster {
             flex: 1;
-            @include flex(center, flex-start);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
             position: relative;
 
             img {
                 width: 400px;
-                border-radius: $border-radius;
-                box-shadow: $box-shadow;
+                border-radius: 30px;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
                 transform: scale(0);
                 transition: transform 0.7s ease;
-            }
-
-            @include tablet {
-                display: none;
             }
         }
     }
@@ -121,5 +112,40 @@
         .btns {
             transition-delay: 0.9s, 0.9s;
         }
+    }
+}
+.btn-watch-now{
+    cursor: pointer;
+    border: 4px solid transparent;
+    background-color: #ff0000;
+    color: #fff;
+    border-radius: 30px;
+    padding: 0.5rem 1.8rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    box-shadow: 0px 0px 7px 8px #ff00004d;
+    transition: box-shadow 0.3s ease;
+    position: relative;
+    &:hover{
+            box-shadow: 0px 0px 7px 15px #ff00004d;
+    }
+}
+.btn-watch-trailer{
+    cursor: pointer;
+    border-radius: 30px;
+    padding: 0.5rem 1.8rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: box-shadow 0.3s ease;
+    position: relative;
+    border: 3px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    box-shadow: unset;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    &:hover{
+        box-shadow: unset;
+        color: #ff0000;
+        background-color: #fff;
     }
 }
