@@ -6,27 +6,29 @@ import movieApi, { apiConfig } from '../api/moviesApi';
 // import apiConfig from '../../api/apiConfig';
 
 import '../asset/style/detail.scss';
+import CastList from '../components/castList/CastList';
 import MovieList from '../components/movieList/MovieList';
+import VideoList from '../components/videoList/VideoList';
 // import CastList from './CastList';
 // import VideoList from './VideoList';
 
 // import MovieList from '../../components/movie-list/MovieList';
 
 const SingleTV = () => {
-    const { category, id } = useParams();
+    const { id } = useParams();
 
     const [item, setItem] = useState(null);
 
     useEffect(() => {
         const getDetail = async () => {
-            const response = await movieApi.detail(category, id, {
+            const response = await movieApi.detail('tv', id, {
                 params: {},
             });
             setItem(response);
             window.scrollTo(0, 0);
         };
         getDetail();
-    }, [category, id]);
+    }, [ id]);
 
     return (
         <>
@@ -66,20 +68,20 @@ const SingleTV = () => {
                                 <div className="section__header">
                                     <h2>Casts</h2>
                                 </div>
-                                {/* <CastList id={item.id} /> */}
+                                <CastList category="tv" id={item.id} />
                             </div>
                         </div>
                     </div>
                     <div className="container">
                         <div className="section mb-3">
-                            {/* <VideoList id={item.id} /> */}
+                            <VideoList category="tv" id={item.id} />
                         </div>
                         <div className="section mb-3">
                             <div className="section__header mb-2">
                                 <h2>Similar</h2>
                             </div>
                             <MovieList
-                                category={category}
+                                category='tv'
                                 type="similar"
                                 id={item.id}
                             />

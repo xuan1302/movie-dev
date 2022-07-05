@@ -16,7 +16,7 @@ const MovieGrid = props => {
 
     const { keyword } = useParams();
     const para = useParams()
-    console.log(para)
+    console.log(para);
     useEffect(() => {
         const getList = async () => {
             let response = null;
@@ -35,6 +35,7 @@ const MovieGrid = props => {
                 }
                 response = await movieApi.search(props.category, { params });
             }
+            
             setItems(response.results);
             setTotalPage(response.total_pages);
         }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import MenuItem from './MenuItem';
 
 function Menu(props) {
@@ -8,7 +9,7 @@ function Menu(props) {
             text: "Home"
         },
         {
-            href: "movie",
+            href: "/movie",
             text: "Movie"
         },
         {
@@ -16,11 +17,13 @@ function Menu(props) {
             text: "TvSeries"
         },
     ]
+    const { pathname } = useLocation();
+    const active = menuItems.findIndex((e) => e.href === pathname);
     return (
         <ul className="header__nav">
-            {
-                menuItems.map(({ href, text }, index) => <MenuItem key={index} href={href} text={text} />)
-            }
+            {menuItems.map(({ href, text }, index) => (
+                <MenuItem key={index} href={href} text={text} active={index === active ? 'active': ''} />
+            ))}
         </ul>
     );
 }

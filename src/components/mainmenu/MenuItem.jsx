@@ -1,9 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-function MenuItem({ href, text }) {
+import { Link } from 'react-router-dom';
+function MenuItem({ href, text, active }) {
     return (
         <li className="item">
-            <NavLink to={href} >{text}</NavLink>
+            <Link className={active} to={href}>{text}</Link>
         </li>
     );
 }
