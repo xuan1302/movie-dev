@@ -1,5 +1,5 @@
 import axiosClient from "./axiosClient";
-import { movieType } from '../constantsMovie';
+import { category, movieType } from '../constantsMovie';
 const movieApi = {
     getMoviesList: (type, params) => {
         const url = `movie/${movieType[type]}`;
@@ -13,7 +13,15 @@ const movieApi = {
         const url = cate + '/' + id + '/videos';
         return axiosClient.get(url, { params: {} });
     },
-}
+    detail: (cate, id, params) => {
+        const url = category[cate] + '/' + id;
+        return axiosClient.get(url, params);
+    },
+    search: (cate, params) => {
+        const url = 'search/' + category[cate];
+        return axiosClient.get(url, params);
+    },
+};
 
 export const apiConfig = {
     originalImage: (imgPath) => `https://image.tmdb.org/t/p/original/${imgPath}`,

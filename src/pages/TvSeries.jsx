@@ -4,7 +4,7 @@ import Taxonomy from '../components/taxonomy/Taxonomy';
 function TvSeries(props) {
     return (
         <>
-            <Taxonomy />
+            <Taxonomy title="Tv Series" cat='tv' />
         </>
     );
 }

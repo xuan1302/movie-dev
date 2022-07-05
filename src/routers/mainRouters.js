@@ -10,32 +10,43 @@ const routers = [
     {
         path: '/',
         exact: true,
-        component: Home
+        component: Home,
     },
     {
         path: '/movie',
-        component: Movies
+        component: Movies,
     },
     {
         path: '/tv',
-        component: TvSeries
+        component: TvSeries,
+    },
+    {
+        path: '/movie/search/:keyword',
+        component: Movies,
+    },
+    {
+        path: '/tv/search/:keyword',
+        component: TvSeries,
     },
     {
         path: '*',
-        component: NotFound
+        component: NotFound,
     },
-]
+];
 const MainRouter = () => {
     return (
-        <Suspense fallback={<div>Loading...</div>} >
+        <Suspense fallback={<div>Loading...</div>}>
             <Switch>
-                {
-                    routers.map(({ component, path, ...rest }, index) =>
-                        <Route key={index} component={component} path={path} {...rest} />
-                    )
-                }
+                {routers.map(({ component, path, ...rest }, index) => (
+                    <Route
+                        key={index}
+                        component={component}
+                        path={path}
+                        {...rest}
+                    />
+                ))}
             </Switch>
         </Suspense>
-    )
+    );
 }
 export default MainRouter

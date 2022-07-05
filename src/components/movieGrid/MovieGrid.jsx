@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useHistory, useParams } from 'react-router';
+import { useHistory, useLocation, useParams } from 'react-router-dom';
+// import { useHistory, useParams } from 'react-router';
 import movieApi from '../../api/moviesApi';
 import '../../asset/style/movieGrid.scss';
 import { category, movieType, tvType } from '../../constantsMovie';
@@ -14,7 +15,8 @@ const MovieGrid = props => {
     const [totalPage, setTotalPage] = useState(0);
 
     const { keyword } = useParams();
-
+    const para = useParams()
+    console.log(para)
     useEffect(() => {
         const getList = async () => {
             let response = null;
@@ -89,7 +91,6 @@ const MovieSearch = props => {
     const history = useHistory();
 
     const [keyword, setKeyword] = useState(props.keyword ? props.keyword : '');
-
     const goToSearch = useCallback(
         () => {
             if (keyword.trim().length > 0) {
@@ -111,7 +112,6 @@ const MovieSearch = props => {
             document.removeEventListener('keyup', enterEvent);
         };
     }, [keyword, goToSearch]);
-
     return (
         <div className="movie-search">
             <input
